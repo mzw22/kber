@@ -8,7 +8,7 @@ Intuitively, the ease of discriminating two stimuli depends on the absolute dist
 
 The ability to discriminate between stimuli often depends on both the distance effect and the magnitude effect. By linking these two effects together with an equation, we can describe the relative strength of each effect:
 $$\text{stimulus contrast} = \frac{ΔI}{I^k}$$
-where stimulus contrast is a measure of the perceived difference between two stimuli, $ΔI$ is the **distance** between the stimuli, and $I$ is the stimulus **magnitude**.
+where stimulus contrast is a measure of the perceived difference between two stimuli, $ΔI$ is the **distance** between these two stimuli, and $I$ is the stimulus **magnitude**.
 
 In this equation, $k$ is a measure of the strength of the magnitude effect. If $k=0$, stimulus magnitude has no effect on discrimination; only the distance betwen stimuli matters. The larger $k$ is, the stronger the magnitude effect.
 
