@@ -14,7 +14,11 @@ This is called the "magnitude effect".
 
 The distance effect and the magnitude effect can be linked together by this equation:
 $$\text{stimulus contrast} = \frac{ΔI}{I^k}$$
-where stimulus contrast is a measure of the perceived difference between stimuli, *ΔI* is the absolute **distance** between stimuli, and *I* is a measure of the absolute stimulus **magnitude**.
+where stimulus contrast is a measure of the perceived difference between two stimuli, *ΔI* is the **distance** between the stimuli, and *I* is the stimulus **magnitude**.
+
+How should the stimulus magnitude *I* be measured, when there are two stimuli? Historically, studies usually take *I* to be the smaller magnitude of the pair.
+Other studies (Nachev et al. 2013) take *I* to be the mean magnitude of both stimuli.
+Depending on the experiment, one of the stimuli may be considered a "background" or "reference" stimulus, in which case this stimulus can be used as *I*.
 
 ## How to use this package
 
