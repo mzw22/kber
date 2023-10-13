@@ -12,5 +12,9 @@ However, it would be very difficult to discriminate the length of two tables whi
 This example shows that the magnitude of both stimuli, as well as the distance between them, affects our ability to discriminate.
 This is called the "magnitude effect".
 
+The distance effect and the magnitude effect can be linked together by this equation:
+$$\text{stimulus contrast} = \frac{ΔI}{I^k}$$
+where stimulus contrast is a measure of the perceived difference between stimuli, *ΔI*is the absolute **distance** between stimuli, and *I* is a measure of the absolute stimulus **magnitude**.
+
 ## How to use this package
 
