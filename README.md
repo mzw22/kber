@@ -12,5 +12,5 @@ where stimulus contrast is a measure of the perceived difference between two sti
 
 **Note:** How should the stimulus magnitude $I$ be measured, when there are two stimuli? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
 
-## How to use this package
-
+## This package
+The aim of this package is to find the value of $k$ which best describes how easy it is to discriminate between two stimuli. The function `estimate_k()` can be used to do this, and the function `stimulus_model()` can be used to inspect the resulting model.
