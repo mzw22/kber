@@ -3,3 +3,4 @@
 export(estimate_k)
 export(stimulus_contrast)
 export(stimulus_model)
+import(rootSolve)
