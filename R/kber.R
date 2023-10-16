@@ -231,10 +231,11 @@ estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), 
   }
   
   ### 3. Organise output into a stimuliframe
-  output <- matrix(estimate=c(k_min, AIC_min),
-                   lower_95=c(conf_intervals[1], AIC_min+2),
-                   upper_95=c(conf_intervals[2], AIC_min+2))
+  output <- data.frame(estimate=c(k_min, AIC_min),
+                       lower_95=c(conf_intervals[1], AIC_min+2),
+                       upper_95=c(conf_intervals[2], AIC_min+2))
   rownames(output) <- c("k", "AIC") #set row names
+  output <- as.matrix(output)
   
   return(output)
 
