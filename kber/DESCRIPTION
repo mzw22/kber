@@ -1,0 +1,13 @@
+Package: kber
+Title: Estimate the Strength of the Magnitude Effect
+Version: 0.1.0
+Authors@R: 
+    c(person("Megan", "Worsley", email="meganworsley16@gmail.com", role=c("aut", "cre")),
+    person("Tanmay", "Dixit", email="td349@cam.ac.uk", role=c("aut")))
+Description: A set of simple functions to model the effect that stimulus magnitude has on discrimination performance in behavioural experiments (Dixit et al, 2022).
+BugReports: https://github.com/r-lib/devtools/issues
+License: MIT License
+Imports: rootSolve
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
