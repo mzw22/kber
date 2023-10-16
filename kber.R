@@ -162,6 +162,7 @@ k_AIC <- function(di, i, k, response, family, weights=NULL) {
 #' #get stimulus model for k=1
 #' estimate_k(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
 #'            family=binomial(link="logit"))
+#' @import rootSolve
 #' @export
 estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), plot=TRUE){
   # Print model to console
@@ -203,7 +204,7 @@ estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), 
   }
   
   # Find 95% conf intervals for k (roots of AIC_95_fun)
-  conf_intervals <- rootSolve::uniroot.all(f=AIC_95_fun, interval=k_range)
+  conf_intervals <- uniroot.all(f=AIC_95_fun, interval=k_range)
 
   # Clean up the confidence intervals
   lower_roots <- conf_intervals[conf_intervals < k_min]
@@ -230,9 +231,9 @@ estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), 
   }
   
   ### 3. Organise output into a stimuliframe
-  output <- stimuli.frame(estimate=c(k_min, AIC_min),
-                       lower_95=c(conf_intervals[1], AIC_min+2),
-                       upper_95=c(conf_intervals[2], AIC_min+2))
+  output <- matrix(estimate=c(k_min, AIC_min),
+                   lower_95=c(conf_intervals[1], AIC_min+2),
+                   upper_95=c(conf_intervals[2], AIC_min+2))
   rownames(output) <- c("k", "AIC") #set row names
   
   return(output)
