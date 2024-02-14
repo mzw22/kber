@@ -27,17 +27,17 @@ estimate_k(
 Leave empty if each observation is 1 decision (binary stimuli)}
 
 \item{k_range}{the range of \code{k} values in which to search for the optimal value of \code{k},
-which maximises the likelihood of \code{\link[=stimulus_model]{stimulus_model()}}, and its 95\% confidence intervals.}
+which minimises the AIC of \code{\link[=stimulus_model]{stimulus_model()}}, and its 95\% confidence intervals.}
 
 \item{plot}{show diagnostic plot (recommended).
-Solid black line shows how the log-likelihood of \code{\link[=stimulus_model]{stimulus_model()}} varies with \code{k};
+Solid black line shows how the AIC of \code{\link[=stimulus_model]{stimulus_model()}} varies with \code{k};
 red vertical line shows the best fitting value of \code{k};
-dashed horizontal line crosses the likelihood function at the 95\% confidence intervals for this \code{k} estimate.}
+dashed horizontal line crosses the AIC curve at the 95\% confidence intervals for this \code{k} estimate.}
 }
 \value{
-A summary table containing the best fitting value of \code{k} which maximises the model likelihood,
+A summary table containing the best fitting value of \code{k} which minimises the model AIC,
 its 95\% confidence intervals (\code{lower_95} and \code{upper_95}),
-and the log-likelihood values of \code{\link[=stimulus_model]{stimulus_model()}} for these values of k.
+and the AIC values of \code{\link[=stimulus_model]{stimulus_model()}} for these values of k.
 }
 \description{
 Fits a series of generalised linear models with \code{\link[=stimulus_model]{stimulus_model()}},

@@ -3,13 +3,13 @@
 
 ### Megan Worsley
 ### Functions for estimating the value of k (defined in Dixit et al. 2022)
-### Last Updated: 09/12/2023
-### Update: Changed AIC to log-likelihood
+### Last Updated: 16/10/2023
+### Update: Fixed package dependencies (I hope)
 
 ### Functions:
 # stimulus_contrast
 # stimulus_model
-# k_logLik
+# k_AIC
 # estimate_k
 
 # Testing stuff:
@@ -89,10 +89,10 @@ stimulus_model <- function(di, i, k, response, family, weights=NULL) {
   return (output)
 }
 
-#' Calculate the likelihood of a series of models, varying k
+#' Calculate the AIC values of a series of models, varying k
 #'
 #' Fits a generalised linear models with [stimulus_model()] for a given value of `k` (see [stimulus_contrast()]),
-#' and computes the log-likelihood of the extracted model. This is mostly used by other functions,
+#' and computes the AIC of the extracting model. This is mostly used by other functions,
 #' the only reason you'd really need it is if you want to make custom diagnostic plots with `ggplot`.
 #' @param di a vector of stimulus distances (see [stimulus_contrast()])
 #' @param i a vector of stimulus magnitudes (see [stimulus_contrast()])
@@ -102,37 +102,37 @@ stimulus_model <- function(di, i, k, response, family, weights=NULL) {
 #' @param weights weights of each observation, used in binomial models (see [glm()]).
 #' Leave empty if each observation is 1 decision (binary stimuli)
 #' @param plot show diagnostic plot (recommended).
-#' Solid black line shows how the log-likelihood of [stimulus_model()] varies with `k`;
+#' Solid black line shows how the AIC of [stimulus_model()] varies with `k`;
 #' red vertical line shows the best fitting value of `k`;
-#' dashed horizontal line crosses the log-likelihood curve at the 95% confidence intervals for this `k` estimate.
-#' @return A summary table containing the best fitting value of `k` which maximises the model likelihood,
+#' dashed horizontal line crosses the AIC curve at the 95% confidence intervals for this `k` estimate.
+#' @return A summary table containing the best fitting value of `k` which minimises the model AIC,
 #' its 95% confidence intervals (`lower_95` and `upper_95`),
-#' and the log-likelihood values of [stimulus_model()] for these values of k.
+#' and the AIC values of [stimulus_model()] for these values of k.
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
 #' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
 #' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#' #get the log-likelihood of stimulus_model for k=1
-#' k_loglik(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
+#' #get the AIC of stimulus_model for k=1
+#' k_AIC(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
 #'       family=binomial(link="logit"))
-k_logLik <- function(di, i, k, response, family, weights=NULL) {
-  logLik_vec <- c() #creates empty vector to fill later
+k_AIC <- function(di, i, k, response, family, weights=NULL) {
+  AIC_vec <- c() #creates empty vector to fill later
   for (kn in k) {
     # Fit model for current value of k
     model_kn <- stimulus_model(di=di, i=i, k=kn, response=response,
                                weights=weights, family=family)
-    # Extract log-likelihood from this model
-    logLik_kn <- logLik(model_kn)[1]
-    # Add this log-likelihood value to vector
-    logLik_vec <- c(logLik_vec, logLik_kn)
+    # Extract AIC from this model
+    AIC_kn <- AIC(model_kn)
+    # Add this AIC value to vector
+    AIC_vec <- c(AIC_vec, AIC_kn)
   }
   
-  if (length(logLik_vec)==1){ #un-vectorise if necessary
-    logLik_vec <- as.numeric(logLik_vec)
+  if (length(AIC_vec)==1){ #un-vectorise if necessary
+    AIC_vec <- as.numeric(AIC_vec)
   }
   
-  return (logLik_vec)
+  return (AIC_vec)
 }
 
 #' Estimate k
@@ -146,14 +146,14 @@ k_logLik <- function(di, i, k, response, family, weights=NULL) {
 #' @param weights weights of each observation, used in binomial models (see [glm()]).
 #' Leave empty if each observation is 1 decision (binary stimuli)
 #' @param k_range the range of `k` values in which to search for the optimal value of `k`,
-#' which maximises the likelihood of [stimulus_model()], and its 95% confidence intervals.
+#' which minimises the AIC of [stimulus_model()], and its 95% confidence intervals.
 #' @param plot show diagnostic plot (recommended).
-#' Solid black line shows how the log-likelihood of [stimulus_model()] varies with `k`;
+#' Solid black line shows how the AIC of [stimulus_model()] varies with `k`;
 #' red vertical line shows the best fitting value of `k`;
-#' dashed horizontal line crosses the likelihood function at the 95% confidence intervals for this `k` estimate.
-#' @return A summary table containing the best fitting value of `k` which maximises the model likelihood,
+#' dashed horizontal line crosses the AIC curve at the 95% confidence intervals for this `k` estimate.
+#' @return A summary table containing the best fitting value of `k` which minimises the model AIC,
 #' its 95% confidence intervals (`lower_95` and `upper_95`),
-#' and the log-likelihood values of [stimulus_model()] for these values of k.
+#' and the AIC values of [stimulus_model()] for these values of k.
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
@@ -169,46 +169,46 @@ estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), 
   message(paste("model: glm(response ~ di/(i^k), family=",
                 deparse(substitute(family)), sep=""))
   
-  ### 1. Find optimal value of k
-  # Function to maximise (finds log-likelihood for each value of k)
-  logLik_fun <- function(x){
-    y <- k_logLik(di=di, i=i, k=x, response=response,
-                  weights=weights, family=family)
+  ### 1. Find minimum value of k
+  # Function to minimise (finds AIC for each value of k)
+  AIC_fun <- function(x){
+    y <- k_AIC(di=di, i=i, k=x, response=response,
+               weights=weights, family=family)
     return(y)
   }
   
-  # Optional diagnostic plot: add logLik ~ k
+  # Optional diagnostic plot: add AIC ~ k
   if (plot==TRUE){
-    curve(logLik_fun, from=k_range[1], to=k_range[2],
-          xlab="k", ylab="log-likelihood") #fit curve
+    curve(AIC_fun, from=k_range[1], to=k_range[2],
+          xlab="k", ylab="model AIC") #fit curve
   }
   
-  # Find optimal value of k (minimise logLik_fun)
-  max_point <- optimise(f=logLik_fun, interval=k_range, maximum=TRUE)
-  k_max <- max_point$maximum
-  logLik_max <- max_point$objective
+  # Find minimum value of k (minimise AIC_fun)
+  min_point <- optimise(f=AIC_fun, interval=k_range)
+  k_min <- min_point$minimum
+  AIC_min <- min_point$objective
   
-  # Check whether the optimal value is at the range edge
-  k_lower_edge <- abs(k_max - k_range[1])
-  k_upper_edge <- abs(k_max - k_range[2])
+  # Check whether the minimum value is at the range edge
+  k_lower_edge <- abs(k_min - k_range[1])
+  k_upper_edge <- abs(k_min - k_range[2])
   if (k_lower_edge < 0.001 | k_upper_edge < 0.001){
     stop("Optimal value of k is outside of k_range")
   }
   
   ### 2. Find 95% confidence intervals for k
   # Function that crosses the x axis at the 95% conf intervals
-  logLik_95_fun <- function(x){
-    y <- logLik_fun(x)
-    y <- logLik_max - y - 2 #95% conf intervals
+  AIC_95_fun <- function(x){
+    y <- AIC_fun(x)
+    y <- y - AIC_min - 2 #95% conf intervals
     return(y)
   }
   
-  # Find 95% conf intervals for k (roots of logLik_95_fun)
-  conf_intervals <- uniroot.all(f=logLik_95_fun, interval=k_range)
+  # Find 95% conf intervals for k (roots of AIC_95_fun)
+  conf_intervals <- uniroot.all(f=AIC_95_fun, interval=k_range)
 
   # Clean up the confidence intervals
-  lower_roots <- conf_intervals[conf_intervals < k_max]
-  higher_roots <- conf_intervals[conf_intervals > k_max]
+  lower_roots <- conf_intervals[conf_intervals < k_min]
+  higher_roots <- conf_intervals[conf_intervals > k_min]
   
   # Stop if either side is missing a confidence interval
   if (length(lower_roots) == 0 & length(higher_roots) == 0){
@@ -219,22 +219,22 @@ estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), 
     stop(paste("Upper 95% confidence interval is outside of k_range"))
   }
   
-  # Get roots closest to k_max
+  # Get roots closest to k_min
   lower_root <- max(lower_roots)
   higher_root <- min(higher_roots)
   conf_intervals <- c(lower_root, higher_root)
   
-  # Optional diagnostic plot: add maximum point and conf intervals
+  # Optional diagnostic plot: add minimum point and conf intervals
   if (plot==TRUE){
-    abline(v=k_max, col="red") #optimal k
-    abline(h=logLik_max-2, lty="dashed") #confidence intervals
+    abline(v=k_min, col="red") #minimum k
+    abline(h=AIC_min+2, lty="dashed") #confidence intervals
   }
   
   ### 3. Organise output into a stimuliframe
-  output <- data.frame(estimate=c(k_max, logLik_max),
-                       lower_95=c(conf_intervals[1], logLik_max+2),
-                       upper_95=c(conf_intervals[2], logLik_max+2))
-  rownames(output) <- c("k", "logLik") #set row names
+  output <- data.frame(estimate=c(k_min, AIC_min),
+                       lower_95=c(conf_intervals[1], AIC_min+2),
+                       upper_95=c(conf_intervals[2], AIC_min+2))
+  rownames(output) <- c("k", "AIC") #set row names
   output <- as.matrix(output)
   
   return(output)
