@@ -16,4 +16,4 @@ where stimulus contrast is a measure of the perceived difference between two sti
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
 ## Feedback
-Please send any questions, suggestions and bugs to meganworsley16@gmail.com or open an issue at https://github.com/mzw22/kber.
+Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
