@@ -16,7 +16,7 @@ where stimulus contrast is a measure of the perceived difference between two sti
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
 ## WARNING
-All models should be used with caution and an understanding of their assumptions. This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear models, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
+All models should be used with caution and an understanding of their assumptions. This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear model, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
 I **STRONGLY** advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
 
