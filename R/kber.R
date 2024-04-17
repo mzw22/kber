@@ -18,9 +18,26 @@
 #library(roxygen2) #for documenting
 #load_all(".") # Load source code
 #document(".") # Load the help documentation
+#check(".") # Check package
 
-# Load packages
-require(rootSolve) #find roots of a function
+#' Stimulus discrimination data
+#'
+#' A dataset containing discrimination performance between stimuli,
+#' originally taken from prinias discriminating between eggs of different
+#' complexities (Dixit et al. 2022)
+#' 
+#' @format A data frame with 119 rows and 3 variables:
+#' \describe{
+#'   \item{stimulus_a}{magnitude of stimulus A}
+#'   \item{stimulus_b}{magnitude of stimulus B}
+#'   \item{discrimination}{whether the subject discriminated between A and B (0 = no, 1 = yes)}
+#' }
+#' @source Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+#' Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+#' Supplementary material from "Visual complexity of egg patterns predicts
+#' egg rejection according to Weber's law". The Royal Society. Collection.
+#' https://doi.org/10.6084/m9.figshare.c.6066380.v2
+"stimuli"
 
 #' Stimulus contrast
 #'
@@ -37,10 +54,16 @@ require(rootSolve) #find roots of a function
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
-#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#' #get stimulus contrast for k=1.2
-#' stimuli$contrast <- stimulus_contrast(di=stimuli$abs_diff, i=stimuli$mean_ab, k=1.2);
+#' 
+#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#' #stimulus distance = absolute difference between a and b
+#' 
+#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#' #stimulus magnitude = mean magnitude of a and b
+#' 
+#' #get stimulus contrast for k = 1.2
+#' stimuli$contrast <- stimulus_contrast(di = stimuli$abs_diff,
+#' i = stimuli$mean_ab, k = 1.2);
 #' @export
 stimulus_contrast <- function(di, i, k) {
   output <- di/(i^k)
@@ -63,11 +86,17 @@ stimulus_contrast <- function(di, i, k) {
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
-#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
+#' 
+#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#' #stimulus distance = absolute difference between a and b
+#' 
+#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#' #stimulus magnitude = mean magnitude of a and b
+#' 
 #' #get stimulus model for k=1
-#'  stimulus_model(di=stimuli$abs_diff, i=stimuli$mean_ab, k=1, response=stimuli$discrimination,
-#'                 family=binomial(link="logit"))
+#'  stimulus_model(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
+#'  response = stimuli$discrimination, family = binomial(link = "logit"))
+#' @importFrom stats AIC glm
 #' @export
 stimulus_model <- function(di, i, k, response, family, weights=NULL) {
   # Print model to console unless called inside a function
@@ -101,7 +130,6 @@ stimulus_model <- function(di, i, k, response, family, weights=NULL) {
 #' @param family model family to use for [stimulus_model()] (see [glm()])
 #' @param weights weights of each observation, used in binomial models (see [glm()]).
 #' Leave empty if each observation is 1 decision (binary stimuli)
-#' @param plot show diagnostic plot (recommended).
 #' Solid black line shows how the AIC of [stimulus_model()] varies with `k`;
 #' red vertical line shows the best fitting value of `k`;
 #' dashed horizontal line crosses the AIC curve at the 95% confidence intervals for this `k` estimate.
@@ -111,11 +139,18 @@ stimulus_model <- function(di, i, k, response, family, weights=NULL) {
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
-#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#' #get the AIC of stimulus_model for k=1
-#' k_AIC(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
-#'       family=binomial(link="logit"))
+#' 
+#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#' #stimulus distance = absolute difference between a and b
+#' 
+#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#' #stimulus magnitude = mean magnitude of a and b
+#' 
+#' #get the AIC of stimulus_model for k = 1
+#' k_AIC(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
+#' response = stimuli$discrimination, family = binomial(link="logit"))
+#' @importFrom stats AIC glm
+#' @export
 k_AIC <- function(di, i, k, response, family, weights=NULL) {
   AIC_vec <- c() #creates empty vector to fill later
   for (kn in k) {
@@ -157,12 +192,19 @@ k_AIC <- function(di, i, k, response, family, weights=NULL) {
 #' @examples
 #' data(stimuli)
 #' #data contains columns for two stimuli of different magnitudes, a and b
-#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#' #get stimulus model for k=1
-#' estimate_k(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
-#'            family=binomial(link="logit"))
-#' @import rootSolve
+#' 
+#' stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#' #stimulus distance = absolute difference between a and b
+#' 
+#' stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#' #stimulus magnitude = mean magnitude of a and b
+#' 
+#' #Estimate k
+#' estimate_k(di = stimuli$abs_diff, i = stimuli$mean_ab,
+#' response = stimuli$discrimination, family = binomial(link="logit"))
+#' @importFrom rootSolve uniroot.all
+#' @importFrom stats AIC glm optimise
+#' @importFrom graphics abline curve
 #' @export
 estimate_k <- function(di, i, response, family, weights=NULL, k_range=c(-1, 3), plot=TRUE){
   # Print model to console

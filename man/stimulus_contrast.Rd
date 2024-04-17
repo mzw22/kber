@@ -27,8 +27,14 @@ Computes the stimulus contrast, defined as \code{distance/(magnitude^k)}, for a 
 \examples{
 data(stimuli)
 #data contains columns for two stimuli of different magnitudes, a and b
-stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#get stimulus contrast for k=1.2
-stimuli$contrast <- stimulus_contrast(di=stimuli$abs_diff, i=stimuli$mean_ab, k=1.2);
+
+stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#stimulus distance = absolute difference between a and b
+
+stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#stimulus magnitude = mean magnitude of a and b
+
+#get stimulus contrast for k = 1.2
+stimuli$contrast <- stimulus_contrast(di = stimuli$abs_diff,
+i = stimuli$mean_ab, k = 1.2);
 }

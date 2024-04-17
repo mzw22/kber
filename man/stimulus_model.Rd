@@ -31,9 +31,14 @@ as the predictor variable and \code{response} as the response variable
 \examples{
 data(stimuli)
 #data contains columns for two stimuli of different magnitudes, a and b
-stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
+
+stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#stimulus distance = absolute difference between a and b
+
+stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#stimulus magnitude = mean magnitude of a and b
+
 #get stimulus model for k=1
- stimulus_model(di=stimuli$abs_diff, i=stimuli$mean_ab, k=1, response=stimuli$discrimination,
-                family=binomial(link="logit"))
+ stimulus_model(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
+ response = stimuli$discrimination, family = binomial(link = "logit"))
 }

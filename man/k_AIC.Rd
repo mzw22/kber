@@ -18,9 +18,7 @@ k_AIC(di, i, k, response, family, weights = NULL)
 \item{family}{model family to use for \code{\link[=stimulus_model]{stimulus_model()}} (see \code{\link[=glm]{glm()}})}
 
 \item{weights}{weights of each observation, used in binomial models (see \code{\link[=glm]{glm()}}).
-Leave empty if each observation is 1 decision (binary stimuli)}
-
-\item{plot}{show diagnostic plot (recommended).
+Leave empty if each observation is 1 decision (binary stimuli)
 Solid black line shows how the AIC of \code{\link[=stimulus_model]{stimulus_model()}} varies with \code{k};
 red vertical line shows the best fitting value of \code{k};
 dashed horizontal line crosses the AIC curve at the 95\% confidence intervals for this \code{k} estimate.}
@@ -38,9 +36,14 @@ the only reason you'd really need it is if you want to make custom diagnostic pl
 \examples{
 data(stimuli)
 #data contains columns for two stimuli of different magnitudes, a and b
-stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b) #stimulus distance = absolute difference between a and b
-stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2 #stimulus magnitude = mean magnitude of a and b
-#get the AIC of stimulus_model for k=1
-k_AIC(di=stimuli$abs_diff, i=stimuli$mean_ab, response=stimuli$discrimination,
-      family=binomial(link="logit"))
+
+stimuli$abs_diff <- abs(stimuli$stimulus_a - stimuli$stimulus_b)
+#stimulus distance = absolute difference between a and b
+
+stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
+#stimulus magnitude = mean magnitude of a and b
+
+#get the AIC of stimulus_model for k = 1
+k_AIC(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
+response = stimuli$discrimination, family = binomial(link="logit"))
 }
