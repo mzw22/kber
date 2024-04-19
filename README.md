@@ -24,7 +24,7 @@ library(kber)
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
 ## WARNING
-As with any model fitting in R, always plot your model and check that its assumptions are met.
+As with any model fitting, always plot your model and check that its assumptions are met.
 
 In particular, this model of stimulus perception assumes that:
 1. discrimination can/should be described with a generalised linear model, with all the associated assumptions;
