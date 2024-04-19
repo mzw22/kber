@@ -10,7 +10,7 @@ The ability to discriminate between stimuli often depends on both the absolute a
 $$\text{stimulus contrast} = \frac{ΔI}{I^k}$$
 where stimulus contrast is a measure of the perceived difference between two stimuli, $ΔI$ is the absolute difference between these two stimuli, and $I$ is the stimulus **magnitude**. In this equation, $k$ is a measure of the strength of the magnitude effect. If $k=0$, stimulus magnitude has no effect on discrimination; only the distance betwen stimuli matters. The larger $k$ is, the stronger the magnitude effect.
 
-**Note:** How should the stimulus magnitude $I$ be measured, when there are two stimuli? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
+**Note:** There are two stimuli, so how should the magnitude $I$ be measured? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
 
 ## Installing kber
 This package is not yet available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber in R with the following code:
