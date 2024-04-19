@@ -10,7 +10,8 @@ The ability to discriminate between stimuli often depends on both the absolute a
 $$\text{stimulus contrast} = \frac{ΔI}{I^k}$$
 where stimulus contrast is a measure of the perceived difference between two stimuli, $ΔI$ is the absolute difference between these two stimuli, and $I$ is the stimulus **magnitude**. In this equation, $k$ is a measure of the strength of the magnitude effect. If $k=0$, stimulus magnitude has no effect on discrimination; only the distance betwen stimuli matters. The larger $k$ is, the stronger the magnitude effect.
 
-**Note:** There are two stimuli, so how should the magnitude $I$ be measured? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
+> [!NOTE]
+> There are two stimuli, so how should the magnitude $I$ be measured? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
 
 ## Installing kber
 This package is not yet available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber in R with the following code:
@@ -23,12 +24,10 @@ library(kber)
 ## About this package
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
-## WARNING
-As with any model fitting, always plot your model and check that its assumptions are met.
-
-In particular, this model of stimulus perception assumes that:
-1. discrimination can/should be described with a generalised linear model, with all the associated assumptions;
-2. discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
+>[!CAUTION]
+>As with any model fitting, always plot your model and check that its assumptions are met. In particular, this model of stimulus perception assumes that:
+>1. discrimination can/should be described with a generalised linear model, with all the associated assumptions;
+>2. discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
 ## Feedback
 Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
