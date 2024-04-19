@@ -3,7 +3,7 @@ The magnitude effect is an effect where, as stimulus magnitude increases, it bec
 
 Dixit, T., Apostol, A.L., Chen, K.-C., Fulford, A.J.C., Town, C.P. & Spottiswoode, C.N. (2022) Visual complexity of egg patterns predicts egg rejection according to Weber’s law. _Proceedings of the Royal Society B: Biological Sciences_. 289 (1978), 20220710. [doi:10.1098/rspb.2022.0710.](https://doi.org/10.1098/rspb.2022.0710)
 
-This package aims to help researchers conduct similar analysis, in experiments which involve discriminating between two stimuli of different magnitudes.
+This R package aims to help researchers conduct similar analysis, in experiments which involve discriminating between two stimuli of different magnitudes.
 
 ## Quantifying the magnitude effect
 The ability to discriminate between stimuli often depends on both the absolute and relative differences between two stimuli. This can be summarised with this equation (modified from Dixit et al. 2022):
@@ -13,7 +13,7 @@ where stimulus contrast is a measure of the perceived difference between two sti
 **Note:** How should the stimulus magnitude $I$ be measured, when there are two stimuli? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
 
 ## Installing kber
-This package is not yet available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber with the following code:
+This package is not yet available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber in R with the following code:
 ```r
 library(devtools) #allows downloads from github
 install_github("mzw22/kber") #download package
