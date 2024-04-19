@@ -22,12 +22,15 @@ library(kber)
 ```
 
 ## About this package
-`estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
+Here are the main functions you will need:
+1. `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli.
+2. `stimulus_model()` can be used to inspect the resulting model, and any other models of interest (eg. $k = 0$ or $k = 1$).
+3. To plot the predictions of this model (how response varies with stimulus contrast), you can use `stimulus_contrast()` to compute contrast directly.
 
 >[!CAUTION]
 >As with any model fitting, always plot your model and check that its assumptions are met. In particular, this model of stimulus perception assumes that:
->1. discrimination can/should be described with a generalised linear model, with all the associated assumptions;
->2. discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
+>- discrimination can/should be described with a generalised linear model, with all the associated assumptions;
+>- discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
 ## Feedback
 Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
