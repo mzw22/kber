@@ -3,6 +3,13 @@
 \name{stimulus_contrast}
 \alias{stimulus_contrast}
 \title{Stimulus contrast}
+\source{
+Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+Supplementary material from "Visual complexity of egg patterns predicts
+egg rejection according to Weber's law". The Royal Society. Collection.
+https://doi.org/10.6084/m9.figshare.c.6066380.v2
+}
 \usage{
 stimulus_contrast(di, i, k)
 }
@@ -36,5 +43,5 @@ stimuli$mean_ab <- (stimuli$stimulus_a + stimuli$stimulus_b)/2
 
 #get stimulus contrast for k = 1.2
 stimuli$contrast <- stimulus_contrast(di = stimuli$abs_diff,
-i = stimuli$mean_ab, k = 1.2);
+i = stimuli$mean_ab, k = 1.2)
 }

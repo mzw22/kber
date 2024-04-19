@@ -3,6 +3,13 @@
 \name{stimulus_model}
 \alias{stimulus_model}
 \title{Stimulus model}
+\source{
+Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+Supplementary material from "Visual complexity of egg patterns predicts
+egg rejection according to Weber's law". The Royal Society. Collection.
+https://doi.org/10.6084/m9.figshare.c.6066380.v2
+}
 \usage{
 stimulus_model(di, i, k, response, family, weights = NULL)
 }
@@ -26,7 +33,7 @@ A fitted generalised linear model of the form \verb{glm(response ~ }
 }
 \description{
 Fits a generalised linear model, with \code{\link[=stimulus_contrast]{stimulus contrast(di, i, k)}}
-as the predictor variable and \code{response} as the response variable
+as the predictor variable and \code{response} as the response variable.
 }
 \examples{
 data(stimuli)

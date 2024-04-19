@@ -63,7 +63,12 @@
 #' 
 #' #get stimulus contrast for k = 1.2
 #' stimuli$contrast <- stimulus_contrast(di = stimuli$abs_diff,
-#' i = stimuli$mean_ab, k = 1.2);
+#' i = stimuli$mean_ab, k = 1.2)
+#' @source Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+#' Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+#' Supplementary material from "Visual complexity of egg patterns predicts
+#' egg rejection according to Weber's law". The Royal Society. Collection.
+#' https://doi.org/10.6084/m9.figshare.c.6066380.v2
 #' @export
 stimulus_contrast <- function(di, i, k) {
   output <- di/(i^k)
@@ -73,7 +78,8 @@ stimulus_contrast <- function(di, i, k) {
 #' Stimulus model
 #'
 #' Fits a generalised linear model, with [`stimulus contrast(di, i, k)`][stimulus_contrast()]
-#' as the predictor variable and `response` as the response variable
+#' as the predictor variable and `response` as the response variable.
+#' 
 #' @param di a vector of stimulus distances (see [stimulus_contrast()])
 #' @param i a vector of stimulus magnitudes (see [stimulus_contrast()])
 #' @param k a constant which determines the strength of the magnitude effect (see [stimulus_contrast()])
@@ -96,6 +102,11 @@ stimulus_contrast <- function(di, i, k) {
 #' #get stimulus model for k=1
 #'  stimulus_model(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
 #'  response = stimuli$discrimination, family = binomial(link = "logit"))
+#' @source Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+#' Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+#' Supplementary material from "Visual complexity of egg patterns predicts
+#' egg rejection according to Weber's law". The Royal Society. Collection.
+#' https://doi.org/10.6084/m9.figshare.c.6066380.v2
 #' @importFrom stats AIC glm
 #' @export
 stimulus_model <- function(di, i, k, response, family, weights=NULL) {
@@ -149,6 +160,11 @@ stimulus_model <- function(di, i, k, response, family, weights=NULL) {
 #' #get the AIC of stimulus_model for k = 1
 #' k_AIC(di = stimuli$abs_diff, i = stimuli$mean_ab, k = 1,
 #' response = stimuli$discrimination, family = binomial(link="logit"))
+#' @source Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+#' Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+#' Supplementary material from "Visual complexity of egg patterns predicts
+#' egg rejection according to Weber's law". The Royal Society. Collection.
+#' https://doi.org/10.6084/m9.figshare.c.6066380.v2
 #' @importFrom stats AIC glm
 #' @export
 k_AIC <- function(di, i, k, response, family, weights=NULL) {
@@ -202,6 +218,11 @@ k_AIC <- function(di, i, k, response, family, weights=NULL) {
 #' #Estimate k
 #' estimate_k(di = stimuli$abs_diff, i = stimuli$mean_ab,
 #' response = stimuli$discrimination, family = binomial(link="logit"))
+#' @source Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+#' Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+#' Supplementary material from "Visual complexity of egg patterns predicts
+#' egg rejection according to Weber's law". The Royal Society. Collection.
+#' https://doi.org/10.6084/m9.figshare.c.6066380.v2
 #' @importFrom rootSolve uniroot.all
 #' @importFrom stats AIC glm optimise
 #' @importFrom graphics abline curve

@@ -3,6 +3,13 @@
 \name{k_AIC}
 \alias{k_AIC}
 \title{Calculate the AIC values of a series of models, varying k}
+\source{
+Dixit, Tanmay; Apostol, Andrei L.; Chen, Kuan-Chi; Fulford,
+Anthony J. C.; Town, Christopher P.; Spottiswoode, Claire N. (2022).
+Supplementary material from "Visual complexity of egg patterns predicts
+egg rejection according to Weber's law". The Royal Society. Collection.
+https://doi.org/10.6084/m9.figshare.c.6066380.v2
+}
 \usage{
 k_AIC(di, i, k, response, family, weights = NULL)
 }
