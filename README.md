@@ -33,4 +33,4 @@ Here are the main functions you will need:
 >- discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
 ## Feedback
-Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
+Please send any questions, suggestions and bugs to mzwors@gmail.com or open an issue at https://github.com/mzw22/kber.
