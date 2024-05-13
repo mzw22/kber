@@ -3,8 +3,8 @@ citHeader("To cite kber in publications use:")
 bibentry(
   bibtype = "Manual",
   title = "kber: Estimate the Strength of the Magnitude Effect",,
-  author = c(person(c("Megan", "Z."), "Worsley", role=c("cre", "aut"), comment = c(ORCID = "0009-0008-9940-6647")),
-    person("Tanmay", "Dixit", role=c("aut"), comment = c(ORCID = "0000-0001-5604-7965"))),
+  author = c(person(c("Megan", "Z."), "Worsley", role=c("cre", "aut"), email = "mzwo142@gmail.com", comment = c(ORCID = "0009-0008-9940-6647")),
+    person("Tanmay", "Dixit", role=c("aut"), email = "td349@cam.ac.uk", comment = c(ORCID = "0000-0001-5604-7965"))),
   year = "2024",
   note = "R package version 1.0",
   url = "https://github.com/mzw22/kber"
