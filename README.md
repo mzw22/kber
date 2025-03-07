@@ -13,21 +13,20 @@ where stimulus contrast is a measure of the perceived difference between two sti
 **Note:** How should the stimulus magnitude $I$ be measured, when there are two stimuli? Historically, studies usually take $I$ to be the smaller magnitude of the pair. Some studies (eg. Nachev et al. 2013) have taken $I$ to be the mean magnitude of both stimuli. Depending on the experiment, one of the stimuli in the pair may have a stronger claim to being the "background" or "reference" stimulus, in which case this stimulus can be used as $I$ (eg. Dixit et al. 2022).
 
 ## Installing kber
-This package is not yet available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber with the following code:
+This package is not (yet) available on CRAN, but you can download it from GitHub using the package `devtools`. Install kber with the following code:
 ```r
 library(devtools) #allows downloads from github
 install_github("mzw22/kber") #download package
 library(kber)
 ```
-CRAN install coming soon, perhaps?
 
 ## About this package
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
-## WARNING
+## Warning
 All models should be used with caution and an understanding of their assumptions. This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear model, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
-I **STRONGLY** advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
+I strongly advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
 
 ## Feedback
 Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
