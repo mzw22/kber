@@ -29,4 +29,4 @@ All models should be used with caution and an understanding of their assumptions
 I strongly advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
 
 ## Feedback
-Please send any questions, suggestions and bugs to mzwo142@gmail.com or open an issue at https://github.com/mzw22/kber.
+Please send any questions, suggestions and bugs to mw327@st-andrews.ac.uk or open an issue at https://github.com/mzw22/kber.
