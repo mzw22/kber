@@ -1,7 +1,5 @@
 # kber: Estimate the Strength of the Magnitude Effect
-The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper **here** (Worsley et al. 2025):
-
-Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
+The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper [https://doi.org/10.1093/beheco/araf025](**here**) (Worsley et al. 2025).
 
 This package, presented in the paper, aims to help researchers conduct similar analysis.
 
@@ -27,6 +25,9 @@ library(kber)
 All models should be used with caution and an understanding of their assumptions. This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear model, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
 
 I strongly advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
+
+## References
+Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, [https://doi.org/10.1093/beheco/araf025]
 
 ## Feedback
 Please send any questions, suggestions and bugs to mw327@st-andrews.ac.uk or open an issue at https://github.com/mzw22/kber.
