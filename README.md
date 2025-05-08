@@ -3,7 +3,7 @@ The magnitude effect is an effect where, as stimulus magnitude increases, it bec
 
 Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
 
-This package aims to help researchers conduct similar analysis, in experiments which involve discriminating between two stimuli of different magnitudes.
+This package, presented in the paper and used for the analyses described there, aims to help researchers conduct similar analysis.
 
 ## Quantifying the magnitude effect
 The ability to discriminate between stimuli often depends on both the absolute and relative differences between two stimuli. This can be summarised with this equation (modified from Dixit et al. 2022):
