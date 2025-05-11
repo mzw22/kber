@@ -31,7 +31,7 @@ Tanmay Dixit, Andrei L. Apostol, Kuan-Chi Chen, Anthony J. C. Fulford, Christoph
 
 Vladislav Nachev, Kai Petra Stich, York Winter 2013 Weber’s Law, the Magnitude Effect and Discrimination of Sugar Concentrations in Nectar-Feeding Animals. PLoS ONE 8(9): e74144. https://doi.org/10.1371/journal.pone.0074144
 
-Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
+Megan Z. Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
 
 ## Feedback
 Please send any questions, suggestions and bugs to mw327@st-andrews.ac.uk or open an issue at https://github.com/mzw22/kber.
