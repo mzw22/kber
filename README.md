@@ -26,8 +26,11 @@ This model of stimulus perception assumes that (a) discrimination can/should be 
 
 ## References
 Tanmay Dixit, Eleanor M. Caves, Claire N. Spottiswoode, Nicholas P. C. Horrocks, Why and how to apply Weber's Law to coevolution and mimicry, Evolution, Volume 75, Issue 8, 1 August 2021, Pages 1906–1919, https://doi.org/10.1111/evo.14290
+
 Tanmay Dixit, Andrei L. Apostol, Kuan-Chi Chen, Anthony J. C. Fulford, Christopher P. Town, Claire N. Spottiswoode 2022 Visual complexity of egg patterns predicts egg rejection according to Weber's law Proc. R. Soc. B.28920220710 http://doi.org/10.1098/rspb.2022.0710
+
 Vladislav Nachev, Kai Petra Stich, York Winter 2013 Weber’s Law, the Magnitude Effect and Discrimination of Sugar Concentrations in Nectar-Feeding Animals. PLoS ONE 8(9): e74144. https://doi.org/10.1371/journal.pone.0074144
+
 Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
 
 ## Feedback
