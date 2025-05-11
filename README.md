@@ -1,5 +1,5 @@
 # kber: Estimate the Strength of the Magnitude Effect
-The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper [**here**](https://doi.org/10.1093/beheco/araf025) (Worsley et al. 2025).
+The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper [**here**](https://doi.org/10.1093/beheco/araf025) (Worsley et al. 2025), and also here [**here**](https://doi.org/10.1111/evo.14290) (Dixit et al. 2021).
 
 This package, presented in the paper, aims to help researchers conduct similar analysis.
 
@@ -27,6 +27,9 @@ All models should be used with caution and an understanding of their assumptions
 I strongly advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
 
 ## References
+Tanmay Dixit, Eleanor M. Caves, Claire N. Spottiswoode, Nicholas P. C. Horrocks, Why and how to apply Weber's Law to coevolution and mimicry, Evolution, Volume 75, Issue 8, 1 August 2021, Pages 1906–1919, https://doi.org/10.1111/evo.14290
+Tanmay Dixit, Andrei L. Apostol, Kuan-Chi Chen, Anthony J. C. Fulford, Christopher P. Town, Claire N. Spottiswoode 2022 Visual complexity of egg patterns predicts egg rejection according to Weber's law Proc. R. Soc. B.28920220710 http://doi.org/10.1098/rspb.2022.0710
+Vladislav Nachev, Kai Petra Stich, York Winter 2013 Weber’s Law, the Magnitude Effect and Discrimination of Sugar Concentrations in Nectar-Feeding Animals. PLoS ONE 8(9): e74144. https://doi.org/10.1371/journal.pone.0074144
 Megan Z Worsley, Julia Schroeder, Tanmay Dixit, How animals discriminate between stimulus magnitudes: a meta-analysis, Behavioral Ecology, Volume 36, Issue 3, May/June 2025, araf025, https://doi.org/10.1093/beheco/araf025
 
 ## Feedback
