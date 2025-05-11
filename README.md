@@ -22,9 +22,7 @@ library(kber)
 `estimate_k()` estimates the value of $k$ which best describes discrimination between stimuli. `stimulus_model()` can be used to inspect the resulting model, and any other models (eg. $k = 0$ or $k = 1$). If you want to plot the predictions of this model, you can use `stimulus_contrast()` to compute contrast directly.
 
 ## Warning
-All models should be used with caution and an understanding of their assumptions. This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear model, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$.
-
-I strongly advise plotting your data against the model and using diagnostic plots to assess whether the output is sensible, as with any model fitting in R.
+This model of stimulus perception assumes that (a) discrimination can/should be described with a generalised linear model, and (b) discrimination varies with magnitude in an unidirectional manner which can be described by the parameter $k$. You can (and should) treat the output the way you would any other binomial GLM - plot the output and check that the assumptions make sense.
 
 ## References
 Tanmay Dixit, Eleanor M. Caves, Claire N. Spottiswoode, Nicholas P. C. Horrocks, Why and how to apply Weber's Law to coevolution and mimicry, Evolution, Volume 75, Issue 8, 1 August 2021, Pages 1906–1919, https://doi.org/10.1111/evo.14290
