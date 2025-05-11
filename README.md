@@ -1,5 +1,5 @@
 # kber: Estimate the Strength of the Magnitude Effect
-The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper [**here**](https://doi.org/10.1093/beheco/araf025) (Worsley et al. 2025), and also here [**here**](https://doi.org/10.1111/evo.14290) (Dixit et al. 2021).
+The magnitude effect is an effect where, as stimulus magnitude increases, it becomes more difficult to detect small increments in stimulus magnitude. You can read about why this is important and how to quantify how stimuli are perceived in our Behavioral Ecology paper [**here**](https://doi.org/10.1093/beheco/araf025) (Worsley et al. 2025), and also [**here**](https://doi.org/10.1111/evo.14290) (Dixit et al. 2021).
 
 This package, presented in the paper, aims to help researchers conduct similar analysis.
 
